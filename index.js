@@ -35,7 +35,6 @@ const fullNameInput = document.getElementById("Name");
 const emailInput = document.getElementById("Email");
 const numberInput = document.getElementById("Number");
 const descriptionInput = document.getElementById("Description");
-const loader = document.getElementById("loader");
 
 sendButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -55,9 +54,10 @@ sendButton.addEventListener("click", function (event) {
     return;
   }
 
+  // Disable the button and change text
+  sendButton.textContent = "SENDING...";
   sendButton.style.pointerEvents = "none";
   sendButton.style.opacity = "0.6";
-  loader.style.display = "block";
 
   const formData = {
     fullName: fullName,
@@ -92,10 +92,10 @@ sendButton.addEventListener("click", function (event) {
       alert("An error occurred: " + error);
     })
     .finally(() => {
-      // Re-enable button and hide loader
+      // Re-enable button and reset text
+      sendButton.textContent = "SEND MESSAGE";
       sendButton.style.pointerEvents = "auto";
       sendButton.style.opacity = "1";
-      loader.style.display = "none";
     });
 });
 

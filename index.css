@@ -461,13 +461,6 @@ main {
     outline: #fff;
 }
 
-#loader {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #333;
-}
-
-
 @media (max-width: 790px) {
 
     .Hamburger {
