@@ -406,11 +406,8 @@ main {
 
 .Food-Head {
     color: #2c2c2c;
-    font-family: "Brittanic";
-    font-weight: 200;
-    font-size: 36px;
-    color: #2c2c2c;
-
+    font-size: 18px;
+    font-family: "Britannic";
     line-height: 1.4;
 }
 
