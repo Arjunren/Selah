@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <meta name="description" content="We bake unique sushi creations using fresh ingredients, delivering bold and unforgettable flavors in every bite.">
+    <meta name="description"
+        content="We bake unique sushi creations using fresh ingredients, delivering bold and unforgettable flavors in every bite.">
     <meta name="keywords" content="Baked, Sushi, BakedSushi, Selah, SelahFusionFlavor">
     <meta name="author" content="Selah">
     <meta property="og:title" content="SelahFusionFlavor">
@@ -15,272 +16,517 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="no-referrer-when-downgrade">
-    
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <!-- <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; 
-             script-src 'self' https://cdn.jsdelivr.net https://unpkg.com; 
-             style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com; 
-             img-src 'self' data: https://maps.gstatic.com; 
-             frame-src https://www.google.com https://www.google.com/maps https://maps.google.com; 
-             child-src https://www.google.com https://www.google.com/maps https://maps.google.com;">
 
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0"> -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ebe6d6">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Selah Fusion Flavor</title>
     <link rel="icon" href="./images/Logo_Edited.png">
-    <link rel="stylesheet" href="./index.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ebe6d6',   // Lightest bg
+                        secondary: '#ded5b9', // Slightly darker bg / Cards
+                        tertiary: '#cec4a7',  // Borders / Accents
+                        dark: '#2c2c2c',      // Text / Buttons
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for Swiper pagination dots to match palette */
+        .swiper-pagination-bullet {
+            background-color: #cec4a7;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #2c2c2c;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Header -->
-    <header style="z-index: 10;">
-        <h1 class="Logo">Selah</h1>
-        <nav class="Nav-Bar">
-            <ul class="Nav-Menu">
-                <li class="Nav-Item"><a href="#1" class="nav-link">Home</a></li>
-                <li class="Nav-Item"><a href="#2" class="nav-link">About</a></li>
-                <li class="Nav-Item"><a href="#3" class="nav-link">Menu</a></li>
-                <li class="Nav-Item"><a href="#4" class="nav-link">Contact</a></li>
-                <li class="Nav-Item"><a
-                        href="https://www.instagram.com/selah_fusionflavor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                        class="nav-link Social">Instagram</a></li>
-                <li class="Nav-Item"><a
-                        href="https://web.facebook.com/elie.selah.baked?mibextid=wwXIfr&rdid=oaN6KuzMgRvkrFc0&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F14KsvFhnq6R%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr"
-                        class="nav-link Social">Facebook</a></li>
-                <li class="Nav-Item"><a
-                        href="mailto:support@yourwebsite.com?subject=Order Inquiry&body=Please provide details of the order."
-                        class="nav-link Social">Email</a></li>
-            </ul>
-            <div class="Hamburger">
-                <span class="Bar"></span>
-                <span class="Bar"></span>
-                <span class="Bar"></span>
+<body class="bg-primary text-dark font-sans antialiased flex flex-col min-h-screen">
+
+    <header class="sticky top-0 z-50 bg-primary/90 backdrop-blur-md border-b border-tertiary shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-3xl font-extrabold tracking-tight text-dark">Selah</a>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#1" class="text-dark hover:text-dark/70 font-medium transition-colors">Home</a>
+                    <a href="#2" class="text-dark hover:text-dark/70 font-medium transition-colors">About</a>
+                    <a href="#3" class="text-dark hover:text-dark/70 font-medium transition-colors">Menu</a>
+                    <a href="#4" class="text-dark hover:text-dark/70 font-medium transition-colors">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="https://www.instagram.com/selah_fusionflavor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank" class="text-dark hover:text-dark/70 transition-transform hover:scale-110">
+                        <i class="ri-instagram-line text-2xl"></i>
+                    </a>
+                    <a href="https://web.facebook.com/elie.selah.baked?mibextid=wwXIfr&rdid=oaN6KuzMgRvkrFc0&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F14KsvFhnq6R%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr"
+                        target="_blank" class="text-dark hover:text-dark/70 transition-transform hover:scale-110">
+                        <i class="ri-facebook-circle-line text-2xl"></i>
+                    </a>
+                    <a href="mailto:theEPfoodbusiness@gmail.com?subject=Inquiry&body=Please provide details of the order."
+                        class="text-dark hover:text-dark/70 transition-transform hover:scale-110">
+                        <i class="ri-mail-line text-2xl"></i>
+                    </a>
+                </div>
+
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="text-dark hover:text-dark/70 focus:outline-none">
+                        <i class="ri-menu-line text-3xl"></i>
+                    </button>
+                </div>
             </div>
-        </nav>
-        <div class="Social-Container">
-            <img src="./images/Instagram.png"
-                onclick="window.location.href='https://www.instagram.com/selah_fusionflavor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='"
-                alt="Social" class="SocialIcon">
-            <img src="./images/Facebook.png"
-                onclick="window.location.href='https://web.facebook.com/elie.selah.baked?mibextid=wwXIfr&rdid=oaN6KuzMgRvkrFc0&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F14KsvFhnq6R%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr'"
-                alt="Social" class="SocialIcon">
-            <img src="./images/Email.png"
-                onclick="window.location.href='mailto:theEPfoodbusiness@gmail.com?subject=Inquiry Inquiry&body=Please provide details of the order.'"
-                alt="Social" class="SocialIcon">
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-secondary border-b border-tertiary shadow-inner absolute w-full">
+            <div class="px-4 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#1"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-tertiary">Home</a>
+                <a href="#2"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-tertiary">About</a>
+                <a href="#3"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-tertiary">Menu</a>
+                <a href="#4"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-tertiary">Contact</a>
+                <div class="pt-4 flex space-x-4 px-3">
+                    <a href="https://www.instagram.com/selah_fusionflavor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank" class="text-dark"><i class="ri-instagram-line text-2xl"></i></a>
+                    <a href="https://web.facebook.com/elie.selah.baked?mibextid=wwXIfr&rdid=oaN6KuzMgRvkrFc0&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F14KsvFhnq6R%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr"
+                        target="_blank" class="text-dark"><i class="ri-facebook-circle-line text-2xl"></i></a>
+                    <a href="mailto:theEPfoodbusiness@gmail.com?subject=Inquiry&body=Please provide details of the order."
+                        class="text-dark"><i class="ri-mail-line text-2xl"></i></a>
+                </div>
+            </div>
         </div>
     </header>
-    <!-- END -->
 
-    <!-- Main -->
-    <main id="1">
-        <section class="A-Container">
-            <div class="Hero-Text">
-                <h1 class="Hero-Header">Life is better with cheese.</h1>
-                <p class="Hero-Paragraph">We bake unique sushi creations using fresh ingredients, delivering bold and
-                    unforgettable flavors in every bite.</p>
-                <a href="https://www.instagram.com/selah_fusionflavor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                    class="OrderButton">Order Now!</a>
-            </div>
-            <div class="Hero-Container">
-                <img src="./images/Hero.png" alt="Hero" class="Hero">
-            </div>
-        </section>
-        <div class="Padlock">
-            <h1 class="Padlock-Header">Promo Deals</h1>
-        </div>
-        <section class="A-Container">
-            <!-- Swiper -->
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide"><img src="./images/Promo1.png" alt="Slide 1" /></div>
-                    <div class="swiper-slide"><img src="./images/Promo2.png" alt="Slide 2" /></div>
+    <main class="flex-grow">
+        <section id="1" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">Life is better with
+                        <span class="text-dark/80 italic">cheese.</span></h1>
+                    <p class="text-lg md:text-xl text-dark/80 max-w-lg mx-auto md:mx-0">
+                        We bake unique sushi creations using fresh ingredients, delivering bold and unforgettable
+                        flavors in every bite.
+                    </p>
+                    <div class="pt-4">
+                        <a href="https://www.instagram.com/selah_fusionflavor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank"
+                            class="inline-block bg-dark text-primary px-8 py-4 rounded-full font-bold tracking-wide hover:bg-dark/80 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Order Now!
+                        </a>
+                    </div>
                 </div>
-
-                <!-- Arrows -->
-                <!-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> -->
-
-                <!-- Pagination Dots -->
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-        <div class="Padlock" id="2">
-            <h1 class="Padlock-Header">Selah Fusion Flavor</h1>
-        </div>
-        <section class="B-Container">
-            <div class="Head-Section">
-                <h1 class="Section-Header">Inspired by tradition. Defined by fusion.</h1>
-                <p class="Section-Paragraph">Selah Fusion Flavor is an East-meets-West-inspired cuisine that highlights
-                    cheese in every food pans. Always serving freshly baked and cooked food to maintain freshness and
-                    quality.</p>
-            </div>
-            <div class="Key-Section">
-                <div class="Key-Container">
-                    <!-- <img src="./images/Chef.png" style="width: 113px; height: 90px;" alt="Keys" class="Key-Img"> -->
-                    <h2 class="Key-Title">Passion</h2>
-                    <p class="Key-Paragraph">We pour our hearts into every roll, ensuring each bite bursts with vibrant,
-                        bold flavors. Our love for sushi drives us to innovate and delight your taste buds.</p>
-                </div>
-                <!-- <div class="Key-Container">
-                    <img src="./images/Oven.png" style="width: 132px; height: 90px;" alt="Keys" class="Key-Img">
-                    <h2 class="Key-Title">Craftmanship</h2>
-                    <p class="Key-Paragraph">Every dish is handmade with care, combining traditional techniques and fresh ingredients. Our baked sushi is a labor of love, crafted to perfection in every roll.</p>
-                </div>
-                <div class="Key-Container">
-                    <img src="./images/Food.png" style="width: 92px; height: 90px;" alt="Keys" class="Key-Img">
-                    <h2 class="Key-Title">Quality</h2>
-                    <p class="Key-Paragraph">We use only the freshest ingredients to create sushi that exceeds expectations. Quality is the foundation of every flavorful, baked creation we serve.</p>
-                </div> -->
-                <div class="Key-Container">
-                    <!-- <img src="./images/Mission.png" style="width: 113px; height: 90px;" alt="Keys" class="Key-Img"> -->
-                    <h2 class="Key-Title">Mission</h2>
-                    <p class="Key-Paragraph">To serve a freshly baked and cooked pan of cheesy cuisine with love for
-                        Love. </p>
-                </div>
-                <div class="Key-Container">
-                    <!-- <img src="./images/Vission.png" style="width: 113px; height: 90px;" alt="Keys" class="Key-Img"> -->
-                    <h2 class="Key-Title">Vission</h2>
-                    <p class="Key-Paragraph">“There are no such bad days with our cheesy pans.” To provide a delicious
-                        and quality East-meets-West food experience while capturing happy and cheesy memories with your
-                        loved ones, friends, and family.</p>
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <img src="./images/Hero.png" alt="Selah Sushi Pan"
+                        class="rounded-2xl shadow-2xl object-cover max-h-[500px] w-full transform rotate-2 hover:rotate-0 transition duration-500">
                 </div>
             </div>
         </section>
-        <div class="Padlock" id="3">
-            <h1 class="Padlock-Header">Where East meet West</h1>
-        </div>
-        <section class="C-Container">
-            <div class="Head-Section">
-                <h1 class="Section-Header">Crafted fresh. Baked with soul.</h1>
-                <p class="Section-Paragraph">Each roll is made fresh daily, baked to perfection, and bursting with rich,
-                    soulful flavors you won’t forget.</p>
-            </div>
-            <div class="Food-Section">
 
-                <div class="Food-Container">
-                    <div class="Food-Img-Container">
-                        <img src="./images/Classic.jpg" alt="FoodImg" class="Food-Img">
-                    </div>
-                    <div class="Food-Text">
-                        <h3 class="Food-Head">Classic Baked Chesse <i class="ri-star-fill star"
-                                style="color: #c9a55d;"></i></h3>
-                        <p class="Food-Paragraph">Pan Size: 6.9x4.4x1.7 <br> Price: ₱279 w/ nori</p>
-                        <p class="Food-Paragraph">Available Flavors: <br> Classic Kani or Classic Tuna </p>
-                    </div>
+        <section class="bg-secondary py-16 border-y border-tertiary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2
+                        class="text-3xl md:text-4xl font-bold uppercase tracking-widest inline-block border-b-4 border-dark pb-2">
+                        Promo Deals</h2>
                 </div>
-
-                <div class="Food-Container">
-                    <div class="Food-Img-Container">
-                        <img src="./images/Baked Samgyup.jpg" alt="FoodImg" class="Food-Img">
+                <div class="swiper mySwiper rounded-2xl overflow-hidden shadow-lg max-w-4xl mx-auto">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="./images/Promo1.png" alt="Promo 1"
+                                class="w-full h-auto object-cover max-h-[400px]"></div>
+                        <div class="swiper-slide"><img src="./images/Promo2.png" alt="Promo 2"
+                                class="w-full h-auto object-cover max-h-[400px]"></div>
                     </div>
-                    <div class="Food-Text">
-                        <h3 class="Food-Head">Samgyup Baked Sushi <i class="ri-star-fill star"
-                                style="color: #c9a55d;"></i></h3>
-                        <p class="Food-Paragraph">Pan Size: 6.9x4.4x1.7 <br> Price: ₱299 w/ nori</p>
-                        <p class="Food-Paragraph">Available Flavors: <br> Samgyup </p>
-                    </div>
+                    <div class="swiper-pagination mt-4"></div>
                 </div>
-
-                <div class="Food-Container">
-                    <div class="Food-Img-Container">
-                        <img src="./images/Classic three cheese.jpg" alt="FoodImg" class="Food-Img">
-                    </div>
-                    <div class="Food-Text">
-                        <h3 class="Food-Head">Classic three cheese</h3>
-                        <p class="Food-Paragraph">Pan Size: 6.9x4.4x1.7 <br> Price: ₱279 w/ nori</p>
-                        <p class="Food-Paragraph">Available Flavors: <br> Kani or Tuna</p>
-                    </div>
-                </div>
-
-                <div class="Food-Container">
-                    <div class="Food-Img-Container">
-                        <img src="./images/Classic three cheese 2.jpg" alt="FoodImg" class="Food-Img">
-                    </div>
-                    <div class="Food-Text">
-                        <h3 class="Food-Head">Classic three cheese</h3>
-                        <p class="Food-Paragraph">Pan Size: 6.9x4.4x1.7 <br> Price: ₱299 w/ nori</p>
-                        <p class="Food-Paragraph">2 Flavors: <br> Kani and Tuna</p>
-                    </div>
-                </div>
-
-                <div class="Food-Container">
-                    <div class="Food-Img-Container">
-                        <img src="./images/Sharing Pans.jpg" alt="FoodImg" class="Food-Img">
-                    </div>
-                    <div class="Food-Text">
-                        <h3 class="Food-Head">Classic three cheese</h3>
-                        <p class="Food-Paragraph">Pan Size: 8.4x5.5x1.8 <br> Price: ₱630 w/ 3pack of nori</p>
-                        <p class="Food-Paragraph">1 Flavors: <br> Kani or Tuna</p>
-                    </div>
-                </div>
-
-                <div class="Food-Container">
-                    <div class="Food-Img-Container">
-                        <img src="./images/Sharing Pans.jpg" alt="FoodImg" class="Food-Img">
-                    </div>
-                    <div class="Food-Text">
-                        <h3 class="Food-Head">Classic three cheese</h3>
-                        <p class="Food-Paragraph">Pan Size: 8.4x5.5x1.8 <br> Price: ₱660 w/ 3pack of nori</p>
-                        <p class="Food-Paragraph">2 Flavors: <br> Classic and Special</p>
-                    </div>
-                </div>
-                <!-- ADD MORE -->
             </div>
         </section>
 
-        <div class="Padlock" id="4">
-            <h1 class="Padlock-Header">Crave it? Bake it.</h1>
-        </div>
-        <section class="D-Container">
-            <div class="Contact-Container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.7469083498063!2d121.05165667462916!3d14.556460578156786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c8f5a9c39af3%3A0x8dcb72d04d477b5b!2sUptown%20Mall!5e0!3m2!1sen!2sph!4v1760016169057!5m2!1sen!2sph"
-                    width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <section id="2" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-sm font-bold tracking-widest text-dark/60 uppercase">Selah Fusion Flavor</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold">Inspired by tradition.<br>Defined by fusion.</h3>
+                <p class="text-lg text-dark/80 max-w-2xl mx-auto">
+                    Selah Fusion Flavor is an East-meets-West-inspired cuisine that highlights cheese in every food pan.
+                    Always serving freshly baked and cooked food to maintain freshness and quality.
+                </p>
             </div>
-            <div class="Contact-Container">
-                <div class="Input-Container">
-                    <label class="ILabel" for="Name">Name</label>
-                    <input class="IInput" type="text" id="Name" name="Name" placeholder="Ex: Juan Carlos">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-secondary p-8 rounded-2xl border border-tertiary shadow-sm hover:shadow-md transition">
+                    <div
+                        class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6 border border-tertiary">
+                        <i class="ri-heart-3-fill text-2xl text-dark"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Passion</h4>
+                    <p class="text-dark/80 leading-relaxed">We pour our hearts into every roll, ensuring each bite
+                        bursts with vibrant, bold flavors. Our love for sushi drives us to innovate and delight your
+                        taste buds.</p>
                 </div>
-                <div class="Input-Container">
-                    <label class="ILabel" for="Number">Number</label>
-                    <input class="IInput" type="number" id="Number" name="Number" placeholder="Ex: 09xxxxxxxxx">
+
+                <div class="bg-secondary p-8 rounded-2xl border border-tertiary shadow-sm hover:shadow-md transition">
+                    <div
+                        class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6 border border-tertiary">
+                        <i class="ri-restaurant-fill text-2xl text-dark"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Mission</h4>
+                    <p class="text-dark/80 leading-relaxed">To serve a freshly baked and cooked pan of cheesy cuisine
+                        with love for Love.</p>
                 </div>
-                <div class="Input-Container">
-                    <label class="ILabel" for="Email">Email</label>
-                    <input class="IInput" type="email" id="Email" name="Email" placeholder="Ex: juan@email.com">
+
+                <div class="bg-secondary p-8 rounded-2xl border border-tertiary shadow-sm hover:shadow-md transition">
+                    <div
+                        class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6 border border-tertiary">
+                        <i class="ri-eye-fill text-2xl text-dark"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Vision</h4>
+                    <p class="text-dark/80 leading-relaxed">"There are no such bad days with our cheesy pans." To
+                        provide a delicious and quality East-meets-West food experience while capturing happy and cheesy
+                        memories with your loved ones.</p>
                 </div>
             </div>
-            <div class="Contact-Container">
-                <textarea name="Description" id="Description"
-                    style="width: 100%; height: 100px; padding: 10px;" placeholder="Put Your Message Here:"></textarea>
+        </section>
+
+        <section id="3" class="bg-secondary py-20 border-y border-tertiary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-sm font-bold tracking-widest text-dark/60 uppercase">Where East meets West</h2>
+                    <h3 class="text-3xl md:text-5xl font-extrabold">Crafted fresh. Baked with soul.</h3>
+                    <p class="text-lg text-dark/80 max-w-2xl mx-auto">
+                        Each roll is made fresh daily, baked to perfection, and bursting with rich, soulful flavors you
+                        won’t forget.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div
+                        class="bg-primary rounded-2xl overflow-hidden shadow-md border border-tertiary flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+                        <div class="h-64 overflow-hidden">
+                            <img src="./images/Classic.jpg" alt="Classic Baked Cheese"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 flex items-center justify-between">
+                                    Classic Baked Cheese
+                                    <i class="ri-star-fill text-[#c9a55d]"></i>
+                                </h4>
+                                <p class="text-sm text-dark/70 mb-4"><span
+                                        class="font-semibold text-dark">Available:</span> Classic Kani or Classic Tuna
+                                </p>
+                            </div>
+                            <div class="flex justify-between items-end border-t border-tertiary pt-4">
+                                <span class="text-xs text-dark/60">Pan: 6.9x4.4x1.7</span>
+                                <span class="text-lg font-bold">₱279 <span class="text-xs font-normal">w/
+                                        nori</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-primary rounded-2xl overflow-hidden shadow-md border border-tertiary flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+                        <div class="h-64 overflow-hidden">
+                            <img src="./images/Baked Samgyup.jpg" alt="Samgyup Baked Sushi"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 flex items-center justify-between">
+                                    Samgyup Baked Sushi
+                                    <i class="ri-star-fill text-[#c9a55d]"></i>
+                                </h4>
+                                <p class="text-sm text-dark/70 mb-4"><span
+                                        class="font-semibold text-dark">Available:</span> Samgyup</p>
+                            </div>
+                            <div class="flex justify-between items-end border-t border-tertiary pt-4">
+                                <span class="text-xs text-dark/60">Pan: 6.9x4.4x1.7</span>
+                                <span class="text-lg font-bold">₱299 <span class="text-xs font-normal">w/
+                                        nori</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-primary rounded-2xl overflow-hidden shadow-md border border-tertiary flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+                        <div class="h-64 overflow-hidden">
+                            <img src="./images/Classic three cheese.jpg" alt="Classic Three Cheese"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Classic Three Cheese</h4>
+                                <p class="text-sm text-dark/70 mb-4"><span
+                                        class="font-semibold text-dark">Available:</span> Kani or Tuna</p>
+                            </div>
+                            <div class="flex justify-between items-end border-t border-tertiary pt-4">
+                                <span class="text-xs text-dark/60">Pan: 6.9x4.4x1.7</span>
+                                <span class="text-lg font-bold">₱279 <span class="text-xs font-normal">w/
+                                        nori</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-primary rounded-2xl overflow-hidden shadow-md border border-tertiary flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+                        <div class="h-64 overflow-hidden">
+                            <img src="./images/Classic three cheese 2.jpg" alt="Classic Three Cheese 2"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Classic Three Cheese (Duo)</h4>
+                                <p class="text-sm text-dark/70 mb-4"><span
+                                        class="font-semibold text-dark">Available:</span> Kani and Tuna</p>
+                            </div>
+                            <div class="flex justify-between items-end border-t border-tertiary pt-4">
+                                <span class="text-xs text-dark/60">Pan: 6.9x4.4x1.7</span>
+                                <span class="text-lg font-bold">₱299 <span class="text-xs font-normal">w/
+                                        nori</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-primary rounded-2xl overflow-hidden shadow-md border border-tertiary flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+                        <div class="h-64 overflow-hidden">
+                            <img src="./images/Sharing Pans.jpg" alt="Sharing Pan Solo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 flex items-center justify-between">Sharing Pan <span
+                                        class="bg-secondary text-xs px-2 py-1 rounded border border-tertiary">Large</span>
+                                </h4>
+                                <p class="text-sm text-dark/70 mb-4"><span class="font-semibold text-dark">1
+                                        Flavor:</span> Kani or Tuna</p>
+                            </div>
+                            <div class="flex justify-between items-end border-t border-tertiary pt-4">
+                                <span class="text-xs text-dark/60">Pan: 8.4x5.5x1.8</span>
+                                <span class="text-lg font-bold">₱630 <span class="text-xs font-normal">w/ 3
+                                        nori</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-primary rounded-2xl overflow-hidden shadow-md border border-tertiary flex flex-col group cursor-pointer hover:shadow-xl transition-all">
+                        <div class="h-64 overflow-hidden">
+                            <img src="./images/Sharing Pans.jpg" alt="Sharing Pan Duo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold mb-2 flex items-center justify-between">Sharing Pan <span
+                                        class="bg-secondary text-xs px-2 py-1 rounded border border-tertiary">Large</span>
+                                </h4>
+                                <p class="text-sm text-dark/70 mb-4"><span class="font-semibold text-dark">2
+                                        Flavors:</span> Classic and Special</p>
+                            </div>
+                            <div class="flex justify-between items-end border-t border-tertiary pt-4">
+                                <span class="text-xs text-dark/60">Pan: 8.4x5.5x1.8</span>
+                                <span class="text-lg font-bold">₱660 <span class="text-xs font-normal">w/ 3
+                                        nori</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="Contact-Container" style="margin-bottom: 0;">
-                <a id="Send" class="OrderButton">SEND MESSAGE</a>
+        </section>
+
+        <section id="4" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-dark/60 uppercase">Crave it? Bake it.</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold mt-4">Get In Touch</h3>
+            </div>
+
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-secondary p-6 md:p-10 rounded-3xl border border-tertiary shadow-lg">
+                <div class="w-full h-full min-h-[300px] rounded-2xl overflow-hidden border border-tertiary">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.7469083498063!2d121.05165667462916!3d14.556460578156786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c8f5a9c39af3%3A0x8dcb72d04d477b5b!2sUptown%20Mall!5e0!3m2!1sen!2sph!4v1760016169057!5m2!1sen!2sph"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <form class="flex flex-col gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <label for="Name" class="text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="Name" name="Name" placeholder="Juan Carlos"
+                                class="bg-primary border border-tertiary rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark/50 transition">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="Number" class="text-sm font-bold mb-2">Number</label>
+                            <input type="number" id="Number" name="Number" placeholder="09xxxxxxxxx"
+                                class="bg-primary border border-tertiary rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark/50 transition">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="Email" class="text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="Email" name="Email" placeholder="juan@email.com"
+                            class="bg-primary border border-tertiary rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark/50 transition">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="Description" class="text-sm font-bold mb-2">Message</label>
+                        <textarea name="Description" id="Description" rows="4"
+                            placeholder="Put your order or message here..."
+                            class="bg-primary border border-tertiary rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dark/50 transition resize-none"></textarea>
+                    </div>
+
+                    <button id="Send" type="button"
+                        class="bg-dark text-primary font-bold rounded-lg px-6 py-4 mt-2 hover:bg-dark/80 transition shadow-md w-full sm:w-auto self-start">
+                        SEND MESSAGE
+                    </button>
+                </form>
             </div>
         </section>
     </main>
-    <footer style="padding: 10px; display: flex; justify-content: center;">
-        <p style="color: #111; font-size: 14px;">Copyright © 2025 Selah. All Rights Reserved.</p>
+
+    <footer class="bg-dark text-primary py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-sm opacity-80">Copyright © 2026 Selah Fusion Flavor. All Rights Reserved.</p>
+        </div>
     </footer>
-    <!-- END -->
-    <script src="./index.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Swiper Initialization
+            const swiper = new Swiper(".mySwiper", {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            // Mobile Menu Toggle logic
+            const mobileMenuBtn = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const menuIcon = mobileMenuBtn.querySelector('i');
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                if (mobileMenu.classList.contains("hidden")) {
+                    menuIcon.classList.remove("ri-close-line");
+                    menuIcon.classList.add("ri-menu-line");
+                } else {
+                    menuIcon.classList.remove("ri-menu-line");
+                    menuIcon.classList.add("ri-close-line");
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    menuIcon.classList.remove("ri-close-line");
+                    menuIcon.classList.add("ri-menu-line");
+                });
+            });
+
+            // Form Submission Logic
+            const sendButton = document.getElementById("Send");
+            const fullNameInput = document.getElementById("Name");
+            const emailInput = document.getElementById("Email");
+            const numberInput = document.getElementById("Number");
+            const descriptionInput = document.getElementById("Description");
+
+            sendButton.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                const fullName = fullNameInput.value.trim();
+                const email = emailInput.value.trim();
+                const number = numberInput.value.trim();
+                const description = descriptionInput.value.trim();
+
+                if (!fullName || !email || !number || !description) {
+                    alert("All fields are required. Please fill in all the details.");
+                    return;
+                }
+
+                if (description.length < 20 || description.length > 300) {
+                    alert("Description must be between 20 and 300 characters.");
+                    return;
+                }
+
+                // UI Loading State
+                sendButton.textContent = "SENDING...";
+                sendButton.classList.add("opacity-50", "cursor-not-allowed");
+                sendButton.disabled = true;
+
+                const formData = {
+                    fullName: fullName,
+                    email: email,
+                    number: number,
+                    description: description,
+                };
+
+                fetch("https://arjunrenvon.pythonanywhere.com/send-food-inquiry", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.message === "Inquiry sent successfully!") {
+                            alert("Your inquiry was sent successfully!");
+                            fullNameInput.value = "";
+                            emailInput.value = "";
+                            numberInput.value = "";
+                            descriptionInput.value = "";
+                        } else {
+                            alert(data.message || "There was an error sending your inquiry. Please try again.");
+                        }
+                    })
+                    .catch((error) => {
+                        alert("An error occurred: " + error);
+                    })
+                    .finally(() => {
+                        // Reset UI State
+                        sendButton.textContent = "SEND MESSAGE";
+                        sendButton.classList.remove("opacity-50", "cursor-not-allowed");
+                        sendButton.disabled = false;
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>
